@@ -1,3 +1,3 @@
 package com.example.interiewprepandroidapp.data.model
 
-data class SearchItem(val id : Int, val value : String)
+data class Country(val id : Int, val value : String)

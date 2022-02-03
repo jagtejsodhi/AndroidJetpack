@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.*
 import com.example.interiewprepandroidapp.R
-import com.example.interiewprepandroidapp.data.model.SearchItem
+import com.example.interiewprepandroidapp.data.model.Country
 import com.example.interiewprepandroidapp.databinding.SearchViewFragmentBinding
 import com.example.interiewprepandroidapp.ui.adapter.SearchItemsAdapter
 import com.example.interiewprepandroidapp.ui.adapter.SearchItemsListCallback
@@ -43,8 +43,8 @@ class SearchViewFragment : Fragment() {
 
     fun setupSearchUI() {
         val searchItemAdapter = SearchItemsAdapter(object : SearchItemsListCallback {
-            override fun onItemSelected(searchItem: SearchItem, index: Int) {
-                Toast.makeText(requireContext(), "Item clicked: ${searchItem.value}", Toast.LENGTH_SHORT).show()
+            override fun onItemSelected(country: Country, index: Int) {
+                Toast.makeText(requireContext(), "Item clicked: ${country.value}", Toast.LENGTH_SHORT).show()
 
                 // close out search view too
                 // searchMenuItem?.collapseActionView()

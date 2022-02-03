@@ -1,7 +1,7 @@
 package com.example.interiewprepandroidapp.ui.viewmodel
 
 import androidx.lifecycle.*
-import com.example.interiewprepandroidapp.data.model.SearchItem
+import com.example.interiewprepandroidapp.data.model.Country
 import com.example.interiewprepandroidapp.data.repository.CountryRepository
 import kotlinx.coroutines.*
 
@@ -11,8 +11,8 @@ class SearchViewModel : ViewModel() {
     private val _loading = MutableLiveData<Boolean>(false)
     val loading : LiveData<Boolean> = _loading
 
-    private val _filteredResults = MutableLiveData<List<SearchItem>>()
-    val filteredResults : LiveData<List<SearchItem>> = _filteredResults
+    private val _filteredResults = MutableLiveData<List<Country>>()
+    val filteredResults : LiveData<List<Country>> = _filteredResults
 
     private var currSearch : Job? = null
 

@@ -1,10 +1,9 @@
 package com.example.interiewprepandroidapp.data.repository
 
-import com.example.interiewprepandroidapp.data.model.SearchItem
+import com.example.interiewprepandroidapp.data.model.Country
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
-import kotlinx.coroutines.withContext
 
 /**
  * Fetches data related to countries. This class should decide how to retrieve data - whether
@@ -47,17 +46,17 @@ class CountryRepository {
         "Wallis and Futuna Islands", "Western Sahara", "Yemen", "Yugoslavia", "Zambia", "Zimbabwe"
     )
 
-    private val countriesList : List<SearchItem> by lazy {
-        val searchItemList = mutableListOf<SearchItem>()
+    private val countriesList : List<Country> by lazy {
+        val searchItemList = mutableListOf<Country>()
 
         for (i in rawCountriesList.indices) {
-            searchItemList.add(SearchItem(i, rawCountriesList[i]))
+            searchItemList.add(Country(i, rawCountriesList[i]))
         }
 
         searchItemList
     }
 
-    suspend fun getCountries(filterQuery : String) : List<SearchItem> {
+    suspend fun getCountries(filterQuery : String) : List<Country> {
         // at the beginning, function in running in the calling coroutine scope
         val backgroundScope = CoroutineScope(Dispatchers.IO)
 

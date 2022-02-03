@@ -5,14 +5,14 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.interiewprepandroidapp.data.model.SearchItem
+import com.example.interiewprepandroidapp.data.model.Country
 import com.example.interiewprepandroidapp.databinding.SearchListItemBinding
 
 interface SearchItemsListCallback {
-    fun onItemSelected(searchItem : SearchItem, index : Int)
+    fun onItemSelected(country : Country, index : Int)
 }
 
-class SearchItemsAdapter(private val callback : SearchItemsListCallback) : ListAdapter<SearchItem, SearchItemViewHolder>(DIFF_CHECKER) {
+class SearchItemsAdapter(private val callback : SearchItemsListCallback) : ListAdapter<Country, SearchItemViewHolder>(DIFF_CHECKER) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchItemViewHolder {
         return SearchItemViewHolder.createViaBinding(parent)
     }
@@ -28,12 +28,12 @@ class SearchItemsAdapter(private val callback : SearchItemsListCallback) : ListA
     }
 
     companion object {
-        val DIFF_CHECKER = object : DiffUtil.ItemCallback<SearchItem>() {
-            override fun areItemsTheSame(oldItem: SearchItem, newItem: SearchItem): Boolean {
+        val DIFF_CHECKER = object : DiffUtil.ItemCallback<Country>() {
+            override fun areItemsTheSame(oldItem: Country, newItem: Country): Boolean {
                 return oldItem.id == newItem.id
             }
 
-            override fun areContentsTheSame(oldItem: SearchItem, newItem: SearchItem): Boolean {
+            override fun areContentsTheSame(oldItem: Country, newItem: Country): Boolean {
                 return oldItem.id == newItem.id && oldItem.value == newItem.value
             }
         }
@@ -41,8 +41,8 @@ class SearchItemsAdapter(private val callback : SearchItemsListCallback) : ListA
 }
 
 class SearchItemViewHolder(val binding : SearchListItemBinding) : RecyclerView.ViewHolder(binding.root) {
-    fun setup(searchItem: SearchItem) {
-        binding.searchItemText.text = searchItem.value
+    fun setup(country: Country) {
+        binding.searchItemText.text = country.value
     }
 
     companion object {
