@@ -32,7 +32,7 @@ class SearchViewModel(private val database : AppDB) : ViewModel() {
         currSearch = viewModelScope.launch {
             if (userQuery.isNotEmpty()) {
                 // if user clears everything, we want to immediately show unfiltered list
-                delay(500)
+                delay(300)
             }
 
             _loading.value = true
